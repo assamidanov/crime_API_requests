@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import requests
 
+
 url = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
 param = {
     "f": "json",
@@ -10,4 +11,7 @@ param = {
 }
 response = requests.get(url=url, params=param)
 
-print(response.json())
+response_json = response.json()
+response_json['candidates'][0]['location']['x']
+response_json['candidates'][0]['location']['y']
+response_json['candidates'][0]['score']
